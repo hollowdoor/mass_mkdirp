@@ -1,7 +1,10 @@
 var mkdirp = require('mkdirp-omen'),
     fsExists = require('fs-promise').exists,
     pathJoin = require('path').join;
-/* mass-mkdirp */
+/* mass-mkdirp
+git remote add origin https://github.com/hollowdoor/mass_mkdirp.git
+git push -u origin master
+*/
 function MassDirp(dirs){
     if(arguments.length){
         dirs = Array.prototype.slice.call(arguments);
