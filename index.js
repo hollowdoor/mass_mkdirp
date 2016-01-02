@@ -13,7 +13,12 @@ function MassDirp(dirs){
     }
 
     dirs = dirs.map(function(dir){
-        return typeof dir === 'string' ? dir : path.join.apply(null, dir);
+        console.log(typeof dir);
+        if(typeof dir === 'string'){
+            return dir;
+        }else{
+            return path.join.apply(null, dir);
+        }
     }).filter(function(dir){
         return typeof dir === 'string';
     });
