@@ -1,6 +1,6 @@
 var mkdirp = require('mkdirp-omen'),
     fsExists = require('fs-promise').exists,
-    pathJoin = require('path').join;
+    path = require('path');
 /* mass-mkdirp
 git remote add origin https://github.com/hollowdoor/mass_mkdirp.git
 git push -u origin master
@@ -11,9 +11,7 @@ function MassDirp(dirs){
     }
 
     dirs = dirs.map(function(dir){
-        return type(dir) === '[object Array]' ?
-               pathJoin.apply(pathJoin, dir) :
-               dir;
+        return typeof dir === 'string' ? dir : path.join.apply(path, dir);
     }).filter(function(dir){
         return typeof dir === 'string';
     });
