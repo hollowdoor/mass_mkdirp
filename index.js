@@ -24,9 +24,9 @@ function MassDirp(dirs){
                 return dir;
             }
 
-            return mkdirp(dir).then(function(){
-                return dir;
-            });
+            return Promise.resolve(mkdirp(dir).then(function(){
+                return Promise.resolve(dir);
+            }));
         });
     }));
 }
