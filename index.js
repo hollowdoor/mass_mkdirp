@@ -8,10 +8,12 @@ git push -u origin master
 function MassDirp(dirs){
     if(arguments.length){
         dirs = Array.prototype.slice.call(arguments);
+    }else if(typeof dirs === 'string'){
+        dirs = [dirs];
     }
 
     dirs = dirs.map(function(dir){
-        return typeof dir === 'string' ? dir : path.join.apply(path, dir);
+        return typeof dir === 'string' ? dir : path.join.apply(null, dir);
     }).filter(function(dir){
         return typeof dir === 'string';
     });
