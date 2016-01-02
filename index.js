@@ -13,10 +13,14 @@ function MassDirp(dirs){
     }
 
     dirs = dirs.map(function(dir){
-        console.log(typeof dir);
         if(typeof dir === 'string'){
             return dir;
+        }else if(!isNaN(dir)){
+            return ''+dir;
         }else{
+            dir = dir.map(function(item){
+                return ''+item;
+            });
             return path.join.apply(null, dir);
         }
     }).filter(function(dir){
@@ -29,9 +33,9 @@ function MassDirp(dirs){
                 return dir;
             }
 
-            return Promise.resolve(mkdirp(dir).then(function(){
-                return Promise.resolve(dir);
-            }));
+            return mkdirp(dir).then(function(){
+                return dir;
+            });
         });
     }));
 }
