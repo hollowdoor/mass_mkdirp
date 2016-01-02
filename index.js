@@ -33,11 +33,11 @@ function MassDirp(dirs){
                 return dir;
             }
 
-            return mkdirp(dir).then(function(){
-                return dir;
-            });
+            return mkdirp(dir);
         });
-    }));
+    })).then(function(){
+        return dirs;
+    });
 }
 
 module.exports = MassDirp;
