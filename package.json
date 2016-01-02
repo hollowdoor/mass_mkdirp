@@ -1,6 +1,6 @@
 {
   "name": "mass-mkdirp",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Make a lot of directories",
   "main": "index.js",
   "directories": {
